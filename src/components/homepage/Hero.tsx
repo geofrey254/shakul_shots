@@ -35,7 +35,7 @@ export default function Hero() {
       <div className="absolute z-30 mx-auto px-8 left-0 bottom-1/6 text-left text-white w-1/2 flex flex-col gap-4">
         <span>Your Guys For The Job</span>
         <h2 className="text-white text-7xl font-extrabold">Shakul Shots</h2>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Officiis sequi deleniti aperiam quidem in aut voluptas. Animi veritatis tempore ea?</p>
+        <p>Lorem ipsum dolo sit amet consectetur adipisicing elit. Officiis sequi deleniti aperiam quidem in aut voluptas. Animi veritatis tempore ea?</p>
 
 {/* CTA BUTTONS */}
         <div className='flex gap-4 mt-8'>
