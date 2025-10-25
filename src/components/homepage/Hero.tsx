@@ -25,11 +25,11 @@ export default function Hero() {
           priority
         />
         {/* Multi-layer gradient overlay for depth */}
-        <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/50 to-transparent"></div>
-        <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-black/30"></div>
+        <div className="absolute inset-0 bg-linear-to-r from-black/80 via-black/50 to-transparent"></div>
+        <div className="absolute inset-0 bg-linear-to-t from-black/60 via-transparent to-black/30"></div>
 
         {/* Animated accent gradient */}
-        <div className="absolute inset-0 bg-gradient-to-br from-[#990000]/40 via-transparent to-transparent mix-blend-multiply"></div>
+        <div className="absolute inset-0 bg-linear-to-br from-[#990000]/40 via-transparent to-transparent mix-blend-multiply"></div>
       </div>
 
       <div className="absolute z-30 mx-auto px-8 left-0 bottom-1/6 text-left text-white w-1/2 flex flex-col gap-4">
