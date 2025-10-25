@@ -61,10 +61,10 @@ export default function Navbar() {
       <div className="relative group">
         <div className="absolute -inset-1 bg-linear-to-r from-[#feeede] to-white opacity-0 group-hover:opacity-30 blur transition duration-300 rounded-full"></div>
         <Image
-          src="/images/whitelogo.png"
+          src="/images/white.png"
           alt="Kitimoke Logo"
-          width={80}
-          height={80}
+          width={50}
+          height={50}
           className="relative transition-transform duration-300 group-hover:scale-105"
         />
       </div>
