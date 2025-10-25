@@ -59,7 +59,7 @@ export default function Navbar() {
     >
       {/* Logo */}
       <div className="relative group">
-        <div className="absolute -inset-1 bg-gradient-to-r from-[#feeede] to-white opacity-0 group-hover:opacity-30 blur transition duration-300 rounded-full"></div>
+        <div className="absolute -inset-1 bg-linear-to-r from-[#feeede] to-white opacity-0 group-hover:opacity-30 blur transition duration-300 rounded-full"></div>
         <Image
           src="/images/whitelogo.png"
           alt="Kitimoke Logo"
@@ -80,7 +80,7 @@ export default function Navbar() {
             <span className="relative z-10 transition-colors duration-300 group-hover:text-[#feeede]">
               {item.name}
             </span>
-            <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-[#feeede] to-white transition-all duration-300 group-hover:w-full"></span>
+            <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-linear-to-r from-[#feeede] to-white transition-all duration-300 group-hover:w-full"></span>
             <span className="absolute inset-0 bg-white/5 scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></span>
           </Link>
         ))}
@@ -113,7 +113,7 @@ export default function Navbar() {
    
 
     {/* Menu Panel */}
-    <div className="absolute top-0 right-0 w-[85%] max-w-sm h-full bg-black shadow-2xl animate-in slide-in-from-right duration-300 border-l border-white/10">
+    <div className="absolute top-0 right-0 w-[85%] max-w-sm h-full bg-black shadow-xl shadow-white animate-in slide-in-from-right duration-300 border-l border-white">
       <div className="relative h-full flex flex-col overflow-y-auto">
         
         {/* Header Section with Diagonal Design */}
@@ -160,7 +160,7 @@ export default function Navbar() {
               href="https://instagram.com/shakul_shots" 
               target="_blank" 
               rel="noopener noreferrer"
-              className="group relative block overflow-hidden rounded-xl bg-gradient-to-r from-white/5 to-white/10 p-2 border border-white/20 hover:border-white/40 transition-all duration-300"
+              className="group relative block overflow-hidden rounded-xl bg-linear-to-r from-white/5 to-white/10 p-2 border border-white/20 hover:border-white/40 transition-all duration-300"
             >
               <div className="absolute top-0 right-0 w-20 h-20 bg-white/10 rounded-full blur-2xl group-hover:w-32 group-hover:h-32 transition-all duration-500"></div>
               
@@ -212,8 +212,8 @@ export default function Navbar() {
         </div>
 
         {/* Footer Wave Design */}
-        <div className="relative mt-auto border-t border-white/10 bg-gradient-to-t from-white/5 to-transparent p-6">
-          <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-white/30 to-transparent"></div>
+        <div className="relative mt-auto border-t border-white/10 bg-linear-to-t from-white/5 to-transparent p-6">
+          <div className="absolute top-0 left-0 w-full h-1 bg-linear-to-r from-transparent via-white/30 to-transparent"></div>
           <p className="text-center text-white/40 text-xs">
             © 2025 Shakul Shots
           </p>
@@ -281,7 +281,7 @@ export default function Navbar() {
               </ul>
 
               {/* Divider */}
-              <div className="h-px bg-gradient-to-r from-transparent via-white/30 to-transparent mb-6"></div>
+              <div className="h-px bg-linear-to-r from-transparent via-white/30 to-transparent mb-6"></div>
           
 
               {/* Social Media */}

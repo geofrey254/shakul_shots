@@ -1,57 +1,140 @@
 'use client'
-import React, { useEffect, useState } from 'react'
+
+import * as React from 'react'
 import Image from 'next/image'
-import { MdRestaurantMenu } from 'react-icons/md'
-import { FaClock, FaMapMarkerAlt, FaPlay } from 'react-icons/fa'
-import { IoSparkles } from 'react-icons/io5'
 import Link from 'next/link'
+import { FaChevronLeft, FaChevronRight, FaPlay } from 'react-icons/fa'
+import { HiOutlineArrowRight } from 'react-icons/hi'
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselNext,
+  CarouselPrevious,
+} from '@/components/ui/carousel'
+import Autoplay from "embla-carousel-autoplay"
+
 
 export default function Hero() {
-  const [isVisible, setIsVisible] = useState(false)
-
-  useEffect(() => {
-    setIsVisible(true)
-  }, [])
+  const slides = [
+    {
+      image: '/images/bg1.jpg',
+      category: 'Portrait',
+      title: 'Shakul Shots',
+      subtitle: 'Visual Storyteller',
+      description: 'Capturing authentic moments through the lens of creativity and emotion.',
+    },
+    {
+      image: '/images/bg2.jpg',
+      category: 'Commercial',
+      title: 'Brand Stories',
+      subtitle: 'Professional Photography',
+      description: 'Elevating brands with compelling visual narratives that resonate.',
+    },
+    {
+      image: '/images/bg3.jpg',
+      category: 'Lifestyle',
+      title: 'Natural Moments',
+      subtitle: 'Candid Sessions',
+      description: 'Documenting life as it unfolds, one authentic frame at a time.',
+    },
+  ]
 
   return (
-    <section className="relative h-screen w-full">
-      {/* Background Image with Overlay */}
-      <div className="absolute inset-0">
-        <Image
-          src="/images/bg1.jpg"
-          alt="Delicious restaurant cuisine"
-          fill
-          className="object-cover"
-          priority
-        />
-        {/* Multi-layer gradient overlay for depth */}
-        <div className="absolute inset-0 bg-linear-to-r from-black/80 via-black/50 to-transparent"></div>
-        <div className="absolute inset-0 bg-linear-to-t from-black/60 via-transparent to-black/30"></div>
+    <section className="relative h-screen w-full overflow-hidden bg-black">
+      <Carousel
+        className="w-full h-full"
+        opts={{
+          align: 'start',
+          loop: true,
+        }}
+        plugins={[
+        Autoplay({
+          delay: 3000,
+        }),
+      ]}
+      >
+        {' '}
+        <CarouselContent className="h-full">
+          {slides.map((slide, index) => (
+            <CarouselItem key={index} className="relative h-screen w-full">
+              <Image
+                src={slide.image}
+                alt={slide.title}
+                fill
+                className="object-cover object-top"
+                priority={index === 0}
+              />
+              {/* Gradient overlays */}
+              <div className="absolute inset-0 bg-linear-to-r from-black via-black/70 to-black/30"></div>
+              <div className="absolute inset-0 bg-linear-to-t from-black/80 via-transparent to-black/50"></div>
+              <div className="absolute inset-0 bg-linear-to-br from-[#990000]/20 via-transparent to-transparent mix-blend-multiply"></div>
 
-        {/* Animated accent gradient */}
-        <div className="absolute inset-0 bg-linear-to-br from-[#990000]/40 via-transparent to-transparent mix-blend-multiply"></div>
-      </div>
+              {/* Text Content */}
+              <div className="relative z-20 flex items-center h-full">
+                <div className="container mx-auto px-8 lg:px-16 max-w-7xl">
+                  <div className="max-w-xl space-y-6">
+                    <span className="inline-flex items-center gap-2 text-[#feeede] text-xs font-light tracking-[0.2em] uppercase">
+                      <span className="w-8 h-px bg-[#feeede]/50"></span>
+                      {slide.category}
+                    </span>
 
-      <div className="absolute z-30 mx-auto px-8 left-0 bottom-1/6 text-left text-white w-1/2 flex flex-col gap-4">
-        <span>Your Guys For The Job</span>
-        <h2 className="text-white text-7xl font-extrabold">Shakul Shots</h2>
-        <p>Lorem ipsum dolo sit amet consectetur adipisicing elit. Officiis sequi deleniti aperiam quidem in aut voluptas. Animi veritatis tempore ea?</p>
+                    <h1 className="text-white text-5xl md:text-6xl font-bold leading-tight">
+                      {slide.title}
+                    </h1>
 
-{/* CTA BUTTONS */}
-        <div className='flex gap-4 mt-8'>
-<Link href="#" className='bg-white px-6 py-2 text-black'>
-Book Shakul</Link>
+                    <p className="text-[#feeede] text-sm font-light tracking-wide">
+                      {slide.subtitle}
+                    </p>
 
-<Link href="#" className='bg-white/20 px-6 py-2 text-white border-'
->
-    Explore Now
-</Link>
+                    <div className="w-16 h-0.5 bg-[#990000]"></div>
+
+                    <p className="text-white/80 text-base leading-relaxed max-w-md">
+                      {slide.description}
+                    </p>
+
+                    <div className="flex flex-wrap gap-4 pt-4">
+                      <Link
+                        href="#contact"
+                        className="group bg-white px-6 py-3 text-black text-sm font-medium tracking-wide hover:bg-[#feeede] transition-all duration-300 flex items-center gap-2"
+                      >
+                        Book a Session
+                        <HiOutlineArrowRight className="group-hover:translate-x-1 transition-transform" />
+                      </Link>
+                      <Link
+                        href="#portfolio"
+                        className="group relative px-6 py-3 text-white text-sm font-medium tracking-wide overflow-hidden"
+                      >
+                        <span className="absolute inset-0 border border-white/30 group-hover:border-white/50 transition-colors"></span>
+                        <span className="relative flex items-center gap-2">
+                          View Work
+                          <FaPlay size={10} />
+                        </span>
+                      </Link>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </CarouselItem>
+          ))}
+        </CarouselContent>
+        {/* Navigation Buttons */}
+        <div className="absolute right-8 top-1/2 -translate-y-1/2 z-30 flex flex-col gap-8 items-center">
+          <CarouselPrevious className="static! translate-x-0! bg-transparent hover:bg-transparent text-white/50 hover:text-white transition-colors">
+            <FaChevronLeft />
+          </CarouselPrevious>
+          <CarouselNext className="static! translate-x-0! bg-transparent hover:bg-transparent text-white/50 hover:text-white transition-colors">
+            <FaChevronRight />
+          </CarouselNext>
         </div>
-      </div>
+      </Carousel>
 
-      {/* Floating decorative elements */}
-      <div className="absolute top-20 right-20 w-32 h-32 bg-[#feeede]/5 rounded-full blur-3xl animate-pulse"></div>
-      <div className="absolute bottom-40 left-20 w-40 h-40 bg-[#990000]/10 rounded-full blur-3xl animate-pulse delay-700"></div>
+      {/* Ambient Lights */}
+      <div className="absolute top-1/4 right-1/4 w-96 h-96 bg-[#feeede]/5 rounded-full blur-[120px] animate-pulse pointer-events-none"></div>
+      <div
+        className="absolute bottom-1/4 left-1/4 w-96 h-96 bg-[#990000]/10 rounded-full blur-[120px] animate-pulse pointer-events-none"
+        style={{ animationDelay: '1000ms' }}
+      ></div>
     </section>
   )
 }
