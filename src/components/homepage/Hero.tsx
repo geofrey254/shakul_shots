@@ -62,6 +62,7 @@ export default function Hero() {
                 src={slide.image}
                 alt={slide.title}
                 fill
+                quality={100}
                 className="object-cover object-top"
                 priority={index === 0}
               />
@@ -71,8 +72,8 @@ export default function Hero() {
               <div className="absolute inset-0 bg-linear-to-br from-[#990000]/20 via-transparent to-transparent mix-blend-multiply"></div>
 
               {/* Text Content */}
-              <div className="relative z-20 flex items-center h-full">
-                <div className="container mx-auto px-8 lg:px-16 max-w-7xl">
+              <div className="relative z-20 flex md:items-center items-end h-full">
+                <div className="container mx-auto px-8 lg:px-16 pb-16 md:pb-0 pt-0 md:pt-16 max-w-7xl">
                   <div className="max-w-xl space-y-6">
                     <span className="inline-flex items-center gap-2 text-[#feeede] text-xs font-light tracking-[0.2em] uppercase">
                       <span className="w-8 h-px bg-[#feeede]/50"></span>
@@ -119,7 +120,7 @@ export default function Hero() {
           ))}
         </CarouselContent>
         {/* Navigation Buttons */}
-        <div className="absolute right-8 top-1/2 -translate-y-1/2 z-30 flex flex-col gap-8 items-center">
+        <div className="absolute right-8 bottom-[36vh] md:top-1/2 -translate-y-1/2 z-30 flex md:flex-col gap-8 items-center">
           <CarouselPrevious className="static! translate-x-0! bg-transparent hover:bg-transparent text-white/50 hover:text-white transition-colors">
             <FaChevronLeft />
           </CarouselPrevious>
