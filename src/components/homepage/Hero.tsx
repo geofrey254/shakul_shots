@@ -120,7 +120,7 @@ export default function Hero() {
           ))}
         </CarouselContent>
         {/* Navigation Buttons */}
-        <div className="absolute right-8 bottom-[36vh] md:top-1/2 -translate-y-1/2 z-30 flex md:flex-col gap-8 items-center">
+        <div className="absolute right-8 bottom-[39vh] md:top-1/2 -translate-y-1/2 z-30 flex md:flex-col gap-8 items-center">
           <CarouselPrevious className="static! translate-x-0! bg-transparent hover:bg-transparent text-white/50 hover:text-white transition-colors">
             <FaChevronLeft />
           </CarouselPrevious>
