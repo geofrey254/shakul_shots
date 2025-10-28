@@ -14,14 +14,14 @@ export default function Contact() {
 
   const [focusedField, setFocusedField] = useState(null);
 
-  const handleChange = (e) => {
+  const handleChange = (e:any) => {
     setFormData({
       ...formData,
       [e.target.name]: e.target.value
     });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = (e:any) => {
     e.preventDefault();
     console.log('Form submitted:', formData);
     // Handle form submission
@@ -98,7 +98,7 @@ export default function Contact() {
         }
       `}</style>
 
-      <section className="bg-black px-6 md:px-12 lg:px-16 py-20 text-white border-t border-zinc-800">
+      <section id='contact' className="bg-black px-6 md:px-12 lg:px-16 py-20 text-white border-t border-zinc-800">
         <div className="max-w-6xl mx-auto">
           {/* Header */}
           <div
@@ -205,8 +205,6 @@ export default function Contact() {
                     name="name"
                     value={formData.name}
                     onChange={handleChange}
-                    onFocus={() => setFocusedField('name')}
-                    onBlur={() => setFocusedField(null)}
                     className="w-full bg-transparent border-b border-zinc-800 py-3 text-white placeholder-gray-600 focus:outline-none transition-colors"
                     placeholder="John Doe"
                   />
@@ -223,8 +221,6 @@ export default function Contact() {
                     name="email"
                     value={formData.email}
                     onChange={handleChange}
-                    onFocus={() => setFocusedField('email')}
-                    onBlur={() => setFocusedField(null)}
                     className="w-full bg-transparent border-b border-zinc-800 py-3 text-white placeholder-gray-600 focus:outline-none transition-colors"
                     placeholder="john@example.com"
                   />
@@ -241,8 +237,6 @@ export default function Contact() {
                     name="phone"
                     value={formData.phone}
                     onChange={handleChange}
-                    onFocus={() => setFocusedField('phone')}
-                    onBlur={() => setFocusedField(null)}
                     className="w-full bg-transparent border-b border-zinc-800 py-3 text-white placeholder-gray-600 focus:outline-none transition-colors"
                     placeholder="+254 700-0000"
                   />
@@ -260,8 +254,7 @@ export default function Contact() {
                     name="message"
                     value={formData.message}
                     onChange={handleChange}
-                    onFocus={() => setFocusedField('message')}
-                    onBlur={() => setFocusedField(null)}
+                 
                     rows={4}
                     className="w-full bg-transparent border-b border-zinc-800 py-3 text-white placeholder-gray-600 focus:outline-none transition-colors resize-none"
                     placeholder="Tell us about your project..."

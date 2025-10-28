@@ -206,14 +206,6 @@ export default function Portfolio() {
             </div>
           ))}
         </Masonry>
-
-        {/* Load More Button */}
-        <div className="text-center mt-12">
-          <button className="px-8 py-3 bg-zinc-900 border border-zinc-700 rounded-full text-white font-medium hover:bg-zinc-800 hover:border-zinc-600 transition-all duration-300 flex items-center gap-2 mx-auto">
-            <span>Load More Projects</span>
-            <ArrowUpRight className="w-4 h-4" />
-          </button>
-        </div>
       </div>
     </section>
   )

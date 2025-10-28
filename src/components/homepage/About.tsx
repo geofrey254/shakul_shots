@@ -2,10 +2,11 @@ import React from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
 import { GrLinkNext } from "react-icons/gr";
+import { FaInstagram } from "react-icons/fa6";
 
 export default function About() {
   return (
-    <section className="bg-black px-6 md:px-12 lg:px-8 py-12 md:py-20">
+    <section id='about' className="bg-black px-6 md:px-12 lg:px-8 py-12 md:py-20">
       <div
         className="flex items-center gap-1 mb-6 text-sm tracking-wider text-gray-400"
         style={{ animation: 'slideIn 0.5s ease-out' }}
@@ -53,17 +54,17 @@ export default function About() {
             <div className="absolute -right-4 md:-right-8 -bottom-8 z-30">
               <Link
                 href="#"
-                className="inline-flex items-center text-sm justify-center px-6 py-4 gap-2 rounded-full bg-white text-gray-900 font-medium shadow-md hover:shadow-lg hover:scale-105 transition-transform duration-300"
+                className="inline-flex items-center text-sm justify-center px-6 py-4 gap-2 rounded-full bg-white text-gray-900 font-medium shadow-md hover:shadow-lg hover:scale-105 transition-transform duration-300 inset-shadow-sm inset-shadow-red-500"
               >
-                Explore Us
-                <GrLinkNext className='-rotate-50'/>
+                <FaInstagram size={50} className='hover:scale-105'/>
               </Link>
 
             </div>
           </div>
         </div>
+        <div className='col-span-1'></div>
 
-        <div className="right-side text-white md:col-span-6 space-y-6">
+        <div className="right-side text-white md:col-span-5 space-y-6">
           <div className="flex items-center gap-3">
             <h3 className="text-2xl md:text-4xl">ABOUT SHAKUL SHOTS</h3>{' '}
             <div className="bg-white/60 w-[60px] md:w-[100px] h-px"></div>
@@ -73,7 +74,7 @@ export default function About() {
             members
           </p>
           <p className="about-content font-extralight">
-            The talent at kimono runs wide range of services. Across many markets, geographies &
+            The talent at Shakul Shots runs wide range of services. Across many markets, geographies &
             typologies, our team members are some of the finest people of photographers in the
             industry wide and deep. From Across many markets, geographies & boundaries. Hire Kimono
             in your event.

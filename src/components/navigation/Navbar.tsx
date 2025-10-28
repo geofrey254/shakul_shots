@@ -42,9 +42,9 @@ export default function Navbar() {
   const navItems = [
     { name: 'Home', href: '/', icon: CiHome },
     { name: 'Gallery', href: '/' },
-    { name: 'About Us', href: '/' },
-    { name: 'Services', href: '/' },
-    { name: 'Contact', href: '/' },
+    { name: 'About Us', href: '#about' },
+    { name: 'Services', href: '#services' },
+    { name: 'Contact', href: '#contact' },
   ]
 
   return (
