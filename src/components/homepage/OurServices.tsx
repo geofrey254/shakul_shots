@@ -1,17 +1,6 @@
 import React from 'react';
-import { Camera, Plane, Heart, User } from 'lucide-react';
-import Image from 'next/image';
 import ServiceCard from '../custom/ServiceCard';
-import { MonteCarlo } from 'next/font/google';
 
-// Simulating the Montez font with a script-style class
-const montezStyle = MonteCarlo(
-    {
-        weight:['400'],
-        subsets: ['latin'],
-
-    }
-)
 
 export default function OurServices() {
   const services = [
@@ -45,7 +34,7 @@ export default function OurServices() {
           style={{ animation: 'slideIn 0.5s ease-out' }}
         >
           <span>01</span>
-          <span className="text-zinc-600">//</span>
+          <span className="text-zinc-600">{"//"}</span>
           <span className="font-medium">SERVICES</span>
         </div>
         
@@ -69,7 +58,7 @@ export default function OurServices() {
               className="text-gray-400 text-base md:text-lg leading-relaxed"
               style={{ animation: 'fadeInUp 0.6s ease-out 0.2s both' }}
             >
-              We're deeply passionate about catching your lovely memories through our lenses and conveying your love for every moment of life as a whole.
+              We{"'"}re deeply passionate about catching your lovely memories through our lenses and conveying your love for every moment of life as a whole.
             </p>
           </div>
         </div>

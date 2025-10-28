@@ -8,12 +8,9 @@ import { CgMenuLeft } from 'react-icons/cg'
 import {
   FaFacebook,
   FaInstagram,
-  FaPhone,
   FaTiktok,
   FaYoutube,
-  FaEnvelope,
 } from 'react-icons/fa'
-import { FaMapMarkerAlt } from 'react-icons/fa'
 import { RiCloseLargeFill } from 'react-icons/ri'
 import { FiInstagram } from 'react-icons/fi'
 import { FaXTwitter } from 'react-icons/fa6'

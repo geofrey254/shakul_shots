@@ -1,14 +1,12 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 'use client'
 
-import React, { useState } from 'react'
+import React from 'react'
 import Masonry from 'react-masonry-css'
 import Image from 'next/image'
-import Link from 'next/link'
-import { Camera, ArrowUpRight } from 'lucide-react'
+import { Camera } from 'lucide-react'
 
 export default function Portfolio() {
-  const [selectedProject, setSelectedProject] = useState(null)
-  const [activeFilter, setActiveFilter] = useState('all')
 
   const projects = [
     {
@@ -133,14 +131,13 @@ export default function Portfolio() {
     },
   ]
 
-  const filteredProjects =
-    activeFilter === 'all' ? projects : projects.filter((p) => p.category === activeFilter)
+  const filteredProjects = projects
 
   const breakpointColumnsObj = {
     default: 2,
     1100: 3,
     768: 2,
-    500:2,
+    500: 2,
   }
 
   return (
@@ -152,15 +149,14 @@ export default function Portfolio() {
           style={{ animation: 'slideIn 0.5s ease-out' }}
         >
           <span>05</span>
-          <span className="text-zinc-600">//</span>
+          <span className="text-zinc-600">{"//"}</span>
           <span className="font-medium">PORTFOLIO</span>
         </div>
 
         {/* Title */}
         <div className="mb-12 flex flex-col justify-center items-center">
           <h2 className="text-5xl font-semibold tracking-tight leading-tight mb-4">
-            Our Creative{' '}
-              Portfolio
+            Our Creative Portfolio
           </h2>
           <p className="text-gray-400 text-lg max-w-2xl">
             Explore our diverse collection of captivating moments and artistic visions
@@ -173,14 +169,13 @@ export default function Portfolio() {
           className="flex gap-6"
           columnClassName="masonry-column space-y-6"
         >
-          {filteredProjects.map((project:any, index) => (
+          {filteredProjects.map((project: any, index) => (
             <div
               key={project.id}
               className="relative group overflow-hidden rounded-xl cursor-pointer"
               style={{
                 animation: `fadeInUp 0.6s ease-out ${index * 0.05}s both`,
               }}
-              onClick={() => setSelectedProject(project)}
             >
               <Image
                 src={project.image}

@@ -1,7 +1,6 @@
 import React from 'react'
 import './styles.css'
 import Navbar from '@/components/navigation/Navbar'
-import { Montserrat } from 'next/font/google'
 import { Sora } from 'next/font/google'
 import Footer from '@/components/navigation/Footer'
 

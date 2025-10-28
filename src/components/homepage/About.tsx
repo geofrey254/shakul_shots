@@ -1,7 +1,6 @@
 import React from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
-import { GrLinkNext } from "react-icons/gr";
 import { FaInstagram } from "react-icons/fa6";
 
 export default function About() {
@@ -12,11 +11,10 @@ export default function About() {
         style={{ animation: 'slideIn 0.5s ease-out' }}
       >
         <span>03</span>
-        <span className="text-zinc-600">//</span>
+        <span className="text-zinc-600">{"//"}</span>
         <span className="font-medium">ABOUT US</span>
       </div>
 
-      {/* Title and Description Grid */}
       <div className="grid grid-cols-12 gap-8 mb-16 items-center">
         <div className="col-span-12 md:col-span-6">
           <h2

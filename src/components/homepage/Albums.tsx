@@ -1,11 +1,7 @@
 "use client"
 import React, { useState, useEffect } from 'react';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
-
-const montezStyle = {
-  fontFamily: 'cursive',
-  fontStyle: 'italic'
-};
+import Image from 'next/image';
 
 export default function Albums() {
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -59,7 +55,7 @@ export default function Albums() {
     setCurrentIndex((prev) => (prev - 1 + photos.length) % photos.length);
   };
 
-  const goToSlide = (index:any) => {
+  const goToSlide = (index: number) => {
     setCurrentIndex(index);
     setIsAutoPlaying(false);
   };
@@ -122,7 +118,7 @@ export default function Albums() {
           style={{ animation: 'slideIn 0.5s ease-out' }}
         >
           <span>02</span>
-          <span className="text-zinc-600">//</span>
+          <span className="text-zinc-600">{"//"}</span>
           <span className="font-medium">PHOTO ALBUMS</span>
         </div>
         
@@ -169,9 +165,10 @@ export default function Albums() {
                     onClick={() => !isCenter && goToSlide((currentIndex + offset + photos.length) % photos.length)}
                   >
                     <div className={`relative w-full h-full rounded-lg overflow-hidden ${isCenter ? 'ring-2 ring-white shadow-2xl' : ''}`}>
-                      <img
+                      <Image
                         src={photo.url}
                         alt={photo.title}
+                        fill
                         className="w-full h-full object-cover"
                       />
                       

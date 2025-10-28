@@ -6,11 +6,9 @@ import {
   Carousel,
   CarouselContent,
   CarouselItem,
-  CarouselNext,
-  CarouselPrevious,
 } from '@/components/ui/carousel'
 import Autoplay from 'embla-carousel-autoplay'
-import { Instagram, Linkedin, Camera, ArrowUpRight } from 'lucide-react'
+import { Instagram, Linkedin, Camera } from 'lucide-react'
 
 export default function Team() {
   const teamMembers = [
@@ -92,7 +90,7 @@ export default function Team() {
             style={{ animation: 'slideIn 0.5s ease-out' }}
           >
             <span>04</span>
-            <span className="text-zinc-600">//</span>
+            <span className="text-zinc-600">{"//"}</span>
             <span className="font-medium">OUR TEAM</span>
           </div>
 
@@ -114,7 +112,7 @@ export default function Team() {
                 className="text-gray-400 text-base md:text-lg leading-relaxed"
                 style={{ animation: 'fadeInUp 0.6s ease-out 0.2s both' }}
               >
-                We're deeply passionate about catching your lovely memories through our lenses and
+                We{"'"}re deeply passionate about catching your lovely memories through our lenses and
                 conveying your love for every moment of life as a whole.
               </p>
             </div>

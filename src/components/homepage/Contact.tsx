@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 "use client"
 import React, { useState } from 'react';
 import Link from 'next/link';
@@ -12,7 +13,6 @@ export default function Contact() {
     message: ''
   });
 
-  const [focusedField, setFocusedField] = useState(null);
 
   const handleChange = (e:any) => {
     setFormData({
@@ -106,7 +106,7 @@ export default function Contact() {
             style={{ animation: 'slideIn 0.5s ease-out' }}
           >
             <span>06</span>
-            <span className="text-zinc-600">//</span>
+            <span className="text-zinc-600">{"//"}</span>
             <span className="font-medium">CONTACT US</span>
           </div>
 
@@ -116,7 +116,7 @@ export default function Contact() {
               className="text-4xl md:text-5xl lg:text-6xl text-white font-semibold tracking-tight leading-tight mb-6"
               style={{ animation: 'fadeInUp 0.6s ease-out 0.1s both' }}
             >
-              Let's Create{' '}
+              Let&apos;s Create{' '}
               <span className="text-transparent bg-clip-text bg-linear-to-r from-zinc-200 to-zinc-400">
                 Something Beautiful
               </span>
@@ -125,7 +125,7 @@ export default function Contact() {
               className="text-gray-400 text-base md:text-lg max-w-2xl"
               style={{ animation: 'fadeInUp 0.6s ease-out 0.2s both' }}
             >
-              Have a project in mind? We'd love to hear about it. Get in touch and let's make it happen.
+              Have a project in mind? We{"'"}d love to hear about it. Get in touch and let{"'"}s make it happen.
             </p>
           </div>
 
@@ -273,7 +273,7 @@ export default function Contact() {
               </div>
 
               <p className="text-xs text-gray-500 text-center">
-                We'll get back to you within 24 hours
+                We{"'"}ll get back to you within 24 hours
               </p>
             </div>
           </div>
