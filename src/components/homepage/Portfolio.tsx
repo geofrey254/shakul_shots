@@ -144,7 +144,7 @@ export default function Portfolio() {
   }
 
   return (
-    <section className="bg-black px-6 md:px-12 lg:px-16 py-20 text-white border-t border-zinc-800">
+    <section className="bg-black px-6 md:px-12 lg:px-8 py-20 text-white border-t border-zinc-800">
       <div className="max-w-7xl mx-auto">
         {/* Header */}
         <div
@@ -191,7 +191,7 @@ export default function Portfolio() {
               />
 
               {/* Overlay */}
-              <div className="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+              <div className="absolute inset-0 bg-linear-to-t from-black via-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
 
               {/* Category Badge */}
               <div className="absolute top-4 left-4 px-3 py-1.5 bg-black/60 backdrop-blur-md border border-zinc-700/50 rounded-full text-xs font-medium text-white flex items-center gap-2">

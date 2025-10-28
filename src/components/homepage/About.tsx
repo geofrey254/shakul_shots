@@ -10,9 +10,9 @@ export default function About() {
         className="flex items-center gap-1 mb-6 text-sm tracking-wider text-gray-400"
         style={{ animation: 'slideIn 0.5s ease-out' }}
       >
-        <span>01</span>
+        <span>03</span>
         <span className="text-zinc-600">//</span>
-        <span className="font-medium">SERVICES</span>
+        <span className="font-medium">ABOUT US</span>
       </div>
 
       {/* Title and Description Grid */}

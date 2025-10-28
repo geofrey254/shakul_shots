@@ -38,7 +38,6 @@ export default function OurServices() {
   ];
 
   return (
-    <>
       <section className="bg-black px-6 md:px-12 lg:px-8 py-20 text-white border-t border-white">
         {/* Header */}
         <div 
@@ -92,6 +91,5 @@ export default function OurServices() {
           ))}
         </div>
       </section>
-    </>
   );
 }

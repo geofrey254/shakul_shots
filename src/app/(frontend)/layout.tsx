@@ -3,6 +3,7 @@ import './styles.css'
 import Navbar from '@/components/navigation/Navbar'
 import { Montserrat } from 'next/font/google'
 import { Sora } from 'next/font/google'
+import Footer from '@/components/navigation/Footer'
 
 
 export const metadata = {
@@ -23,7 +24,9 @@ export default async function RootLayout(props: { children: React.ReactNode }) {
       <body>
         <main>
           <Navbar/>
-          {children}</main>
+          {children}
+          <Footer/>
+          </main>
       </body>
     </html>
   )

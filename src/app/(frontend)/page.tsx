@@ -5,6 +5,7 @@ import Albums from '@/components/homepage/Albums'
 import About from '@/components/homepage/About'
 import Team from '@/components/homepage/Team'
 import Portfolio from '@/components/homepage/Portfolio'
+import Contact from '@/components/homepage/Contact'
 
 export default function page() {
   return (
@@ -15,6 +16,7 @@ export default function page() {
     <About/>
     <Team/>
     <Portfolio/>
+    <Contact/>
     </>
   )
 }
