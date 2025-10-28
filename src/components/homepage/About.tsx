@@ -74,7 +74,7 @@ export default function About() {
           <p className="about-content font-extralight">
             The talent at Shakul Shots runs wide range of services. Across many markets, geographies &
             typologies, our team members are some of the finest people of photographers in the
-            industry wide and deep. From Across many markets, geographies & boundaries. Hire Kimono
+            industry wide and deep. From Across many markets, geographies & boundaries. Hire Shakul Shots
             in your event.
           </p>
         </div>
