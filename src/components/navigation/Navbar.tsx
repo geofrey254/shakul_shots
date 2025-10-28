@@ -246,6 +246,7 @@ export default function Navbar() {
                   <li key={i}>
                     <Link
                       href={item.href}
+                      onClick={toggleMenu}
                       className="flex items-center justify-between font-semibold text-white text-sm uppercase tracking-wide transition-all duration-300 group"
                     >
                       <span className="group-hover:translate-x-1 transition-transform">

@@ -7,9 +7,11 @@ import Footer from '@/components/navigation/Footer'
 
 
 export const metadata = {
-  description: 'A blank template using Payload in a Next.js app.',
-  title: 'Payload Blank Template',
+  title: 'Shakul Shots | Photography & Cinematography',
+  description:
+    'Shakul Shots — professional photography and cinematography capturing timeless moments through creative visuals, storytelling, and cinematic artistry.',
 }
+
 
 const sora = Sora({
   weight: ['200','300', '400', '500', '600', '700'],

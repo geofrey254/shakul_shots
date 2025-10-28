@@ -57,12 +57,8 @@ export default function OurServices() {
               style={{ animation: 'fadeInUp 0.6s ease-out 0.1s both' }}
             >
               Our Creative{' '}
-              <span 
-                className={[montezStyle.className, "block text-5xl md:text-6xl lg:text-7xl md:mt-2"].join(" ")}
-               
-              >
+            
                 Services
-              </span>
             </h2>
           </div>
           
