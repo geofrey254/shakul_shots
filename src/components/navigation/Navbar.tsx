@@ -138,7 +138,7 @@ export default function Navbar() {
 
                       <div className="relative bg-black p-3 rounded-lg">
                         <Image
-                          src="/images/whitelogo.png"
+                          src="/images/white.png"
                           alt="Shakul Shots Logo"
                           width={100}
                           height={100}
