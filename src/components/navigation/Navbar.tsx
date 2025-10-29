@@ -5,12 +5,7 @@ import { createPortal } from 'react-dom'
 import Image from 'next/image'
 import Link from 'next/link'
 import { CgMenuLeft } from 'react-icons/cg'
-import {
-  FaFacebook,
-  FaInstagram,
-  FaTiktok,
-  FaYoutube,
-} from 'react-icons/fa'
+import { FaFacebook, FaInstagram, FaTiktok, FaYoutube } from 'react-icons/fa'
 import { RiCloseLargeFill } from 'react-icons/ri'
 import { FiInstagram } from 'react-icons/fi'
 import { FaXTwitter } from 'react-icons/fa6'
@@ -179,11 +174,23 @@ export default function Navbar() {
                     </p>
                     <div className="grid grid-cols-3 gap-3">
                       {[
-                        { icon: FaFacebook, href: 'https://facebook.com/shakulshots', name: 'Facebook' },
-                        { icon: FaInstagram, href: 'https://instagram.com/shakul_shots', name: 'Instagram' },
+                        {
+                          icon: FaFacebook,
+                          href: 'https://facebook.com/shakulshots',
+                          name: 'Facebook',
+                        },
+                        {
+                          icon: FaInstagram,
+                          href: 'https://instagram.com/shakul_shots',
+                          name: 'Instagram',
+                        },
                         { icon: FaXTwitter, href: 'https://twitter.com/shakulshots', name: 'X' },
                         { icon: FaTiktok, href: 'https://tiktok.com/@shakulshots', name: 'TikTok' },
-                        { icon: FaYoutube, href: 'https://youtube.com/@shakulshots', name: 'YouTube' },
+                        {
+                          icon: FaYoutube,
+                          href: 'https://youtube.com/@shakulshots',
+                          name: 'YouTube',
+                        },
                       ].map((social, i) => (
                         <a
                           key={i}
@@ -210,7 +217,7 @@ export default function Navbar() {
               </div>
             </div>
           </div>,
-          document.body
+          document.body,
         )}
 
       {/* Mobile Menu (unchanged) */}
@@ -231,12 +238,7 @@ export default function Navbar() {
                 </button>
               </div>
               <div className="flex justify-center mb-8">
-                <Image
-                  src="/images/white.png"
-                  alt="Logo"
-                  width={80}
-                  height={80}
-                />
+                <Image src="/images/white.png" alt="Logo" width={80} height={80} />
               </div>
               <ul className="flex flex-col gap-8 mb-8">
                 {navItems.map((item, i) => (
@@ -259,35 +261,39 @@ export default function Navbar() {
             </div>
           </div>
           {/* Social Grid */}
-                  <div className='absolute bottom-0 w-[60%] p-8'>
-                    <p className="text-white/60 text-xs uppercase tracking-widest mb-4 font-semibold flex items-center gap-2">
-                      <span className="w-8 h-px bg-white/20"></span>
-                      Social Media
-                      <span className="flex-1 h-px bg-white/20"></span>
-                    </p>
-                    <div className="grid grid-cols-2 gap-3">
-                      {[
-                        { icon: FaFacebook, href: 'https://facebook.com/shakulshots', name: 'Facebook' },
-                        { icon: FaInstagram, href: 'https://instagram.com/shakul_shots', name: 'Instagram' },
-                        { icon: FaXTwitter, href: 'https://twitter.com/shakulshots', name: 'X' },
-                        { icon: FaTiktok, href: 'https://tiktok.com/@shakulshots', name: 'TikTok' },
-                        { icon: FaYoutube, href: 'https://youtube.com/@shakulshots', name: 'YouTube' },
-                      ].map((social, i) => (
-                        <Link
-                          key={i}
-                          href={social.href}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="group relative flex flex-col items-center gap-2 p-4 rounded-xl bg-white/5 hover:bg-white/10 border border-white/10 hover:border-white/30 transition-all duration-300 transform hover:scale-105"
-                        >
-                          <social.icon size={24} className="text-white/80 group-hover:text-white" />
-                          <span className="text-white/60 text-[10px] group-hover:text-white/80">
-                            {social.name}
-                          </span>
-                        </Link>
-                      ))}
-                    </div>
-                  </div>
+          <div className="absolute bottom-0 w-[60%] p-8 animate-in slide-in-from-left duration-300">
+            <p className="text-white/60 text-xs uppercase tracking-widest mb-4 font-semibold flex items-center gap-2">
+              <span className="w-8 h-px bg-white/20"></span>
+              Social Media
+              <span className="flex-1 h-px bg-white/20"></span>
+            </p>
+            <div className="grid grid-cols-2 gap-3">
+              {[
+                { icon: FaFacebook, href: 'https://facebook.com/shakulshots', name: 'Facebook' },
+                {
+                  icon: FaInstagram,
+                  href: 'https://instagram.com/shakul_shots',
+                  name: 'Instagram',
+                },
+                { icon: FaXTwitter, href: 'https://twitter.com/shakulshots', name: 'X' },
+                { icon: FaTiktok, href: 'https://tiktok.com/@shakulshots', name: 'TikTok' },
+                { icon: FaYoutube, href: 'https://youtube.com/@shakulshots', name: 'YouTube' },
+              ].map((social, i) => (
+                <Link
+                  key={i}
+                  href={social.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="group relative flex flex-col items-center gap-2 p-4 rounded-xl bg-white/5 hover:bg-white/10 border border-white/10 hover:border-white/30 transition-all duration-300 transform hover:scale-105"
+                >
+                  <social.icon size={24} className="text-white/80 group-hover:text-white" />
+                  <span className="text-white/60 text-[10px] group-hover:text-white/80">
+                    {social.name}
+                  </span>
+                </Link>
+              ))}
+            </div>
+          </div>
         </div>
       )}
     </nav>
