@@ -3,7 +3,21 @@ import Link from 'next/link'
 import Image from 'next/image'
 import { FaInstagram } from "react-icons/fa6";
 
-export default function About() {
+interface AboutProps {
+  block: {
+    image: {
+      url: string
+      alt: string
+    }
+    title: string
+    paragraphOne : string
+    paragraphTwo : string
+    instagramLink : string
+    
+  }
+}
+
+export default function About({block}: AboutProps) {
   return (
     <section id='about' className="bg-black px-6 md:px-12 lg:px-8 py-12 md:py-20">
       <div
@@ -21,8 +35,7 @@ export default function About() {
             className="text-4xl md:text-5xl lg:text-5xl text-white font-semibold tracking-tighter"
             style={{ animation: 'fadeInUp 0.6s ease-out 0.1s both' }}
           >
-            Shakul captures All of Your beautiful memories
-          </h2>
+{block.title}          </h2>
         </div>
 
         <div className="col-span-12 md:col-span-6 flex md:justify-end">
@@ -37,7 +50,7 @@ export default function About() {
         <div className="relative md:col-span-6 flex justify-center items-center">
           <div className="relative w-full max-w-[500px]">
             <Image
-              src="/images/bg1.jpg"
+              src={block.image.url}
               width={500}
               height={500}
               alt="about image"
@@ -51,7 +64,7 @@ export default function About() {
             {/* Explore button */}
             <div className="absolute -right-4 md:-right-8 -bottom-8 z-30">
               <Link
-                href="#"
+                href={block.instagramLink}
                 className="inline-flex items-center text-sm justify-center px-6 py-4 gap-2 rounded-full bg-white text-gray-900 font-medium shadow-md hover:shadow-lg hover:scale-105 transition-transform duration-300 inset-shadow-sm inset-shadow-red-500"
               >
                 <FaInstagram size={50} className='hover:scale-105'/>
@@ -68,14 +81,10 @@ export default function About() {
             <div className="bg-white/60 w-[60px] md:w-[100px] h-px"></div>
           </div>
           <p className="tagline text-2xl font-extralight">
-            Shakul Shots runs wide and deep. Across many markets, geographies & typologies, our team
-            members
+            {block.paragraphOne}
           </p>
           <p className="about-content font-extralight">
-            The talent at Shakul Shots runs wide range of services. Across many markets, geographies &
-            typologies, our team members are some of the finest people of photographers in the
-            industry wide and deep. From Across many markets, geographies & boundaries. Hire Shakul Shots
-            in your event.
+            {block.paragraphTwo}
           </p>
         </div>
       </div>
