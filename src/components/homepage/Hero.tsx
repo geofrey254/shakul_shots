@@ -18,8 +18,10 @@ interface HeroProps {
   block: {
     slides: Array<{
       image: {
-        url: string
-        alt: string
+        image: {
+          url: string
+          alt: string
+        }
         category: string
       }
       title: string
@@ -30,7 +32,7 @@ interface HeroProps {
 }
 
 export default function Hero({ block }: HeroProps) {
-  const slider = block?.slides?.filter((s) => s && s.image?.url) ?? []
+  const slider = block?.slides
 
   if (slider.length === 0) {
     return null
@@ -55,7 +57,7 @@ export default function Hero({ block }: HeroProps) {
           {slider.map((slide, index) => (
             <CarouselItem key={index} className="relative h-screen w-full">
               <Image
-                src={slide.image.url}
+                src={slide.image.image.url}
                 alt={slide.title}
                 fill
                 quality={100}

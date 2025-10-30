@@ -72,6 +72,7 @@ export interface Config {
     services: Service;
     gallery: Gallery;
     team: Team;
+    pages: Page;
     'payload-locked-documents': PayloadLockedDocument;
     'payload-preferences': PayloadPreference;
     'payload-migrations': PayloadMigration;
@@ -83,6 +84,7 @@ export interface Config {
     services: ServicesSelect<false> | ServicesSelect<true>;
     gallery: GallerySelect<false> | GallerySelect<true>;
     team: TeamSelect<false> | TeamSelect<true>;
+    pages: PagesSelect<false> | PagesSelect<true>;
     'payload-locked-documents': PayloadLockedDocumentsSelect<false> | PayloadLockedDocumentsSelect<true>;
     'payload-preferences': PayloadPreferencesSelect<false> | PayloadPreferencesSelect<true>;
     'payload-migrations': PayloadMigrationsSelect<false> | PayloadMigrationsSelect<true>;
@@ -213,6 +215,82 @@ export interface Team {
   createdAt: string;
 }
 /**
+ * Collection of site pages
+ *
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "pages".
+ */
+export interface Page {
+  id: number;
+  title: string;
+  slug: string;
+  layout: (
+    | {
+        slides?:
+          | {
+              image: number | Gallery;
+              title: string;
+              subtitle?: string | null;
+              description?: string | null;
+              id?: string | null;
+            }[]
+          | null;
+        id?: string | null;
+        blockName?: string | null;
+        blockType: 'hero';
+      }
+    | {
+        sectionTitle: string;
+        sectionParagraph: string;
+        services: (number | Service)[];
+        id?: string | null;
+        blockName?: string | null;
+        blockType: 'services-block';
+      }
+    | {
+        albumTitle: string;
+        photos: (number | Gallery)[];
+        id?: string | null;
+        blockName?: string | null;
+        blockType: 'album';
+      }
+    | {
+        image: number | Media;
+        title: string;
+        paragraphOne: string;
+        paragraphTwo: string;
+        instagramLink: string;
+        id?: string | null;
+        blockName?: string | null;
+        blockType: 'about';
+      }
+    | {
+        sectionTitle: string;
+        sectionParagraph: string;
+        members: (number | Team)[];
+        id?: string | null;
+        blockName?: string | null;
+        blockType: 'team';
+      }
+    | {
+        sectionTitle: string;
+        sectionParagraph: string;
+        projects?:
+          | {
+              projectImage: number | Gallery;
+              height: 'short' | 'medium' | 'tall';
+              id?: string | null;
+            }[]
+          | null;
+        id?: string | null;
+        blockName?: string | null;
+        blockType: 'portfolio';
+      }
+  )[];
+  updatedAt: string;
+  createdAt: string;
+}
+/**
  * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "payload-locked-documents".
  */
@@ -238,6 +316,10 @@ export interface PayloadLockedDocument {
     | ({
         relationTo: 'team';
         value: number | Team;
+      } | null)
+    | ({
+        relationTo: 'pages';
+        value: number | Page;
       } | null);
   globalSlug?: string | null;
   user: {
@@ -358,6 +440,87 @@ export interface TeamSelect<T extends boolean = true> {
         platform?: T;
         url?: T;
         id?: T;
+      };
+  updatedAt?: T;
+  createdAt?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "pages_select".
+ */
+export interface PagesSelect<T extends boolean = true> {
+  title?: T;
+  slug?: T;
+  layout?:
+    | T
+    | {
+        hero?:
+          | T
+          | {
+              slides?:
+                | T
+                | {
+                    image?: T;
+                    title?: T;
+                    subtitle?: T;
+                    description?: T;
+                    id?: T;
+                  };
+              id?: T;
+              blockName?: T;
+            };
+        'services-block'?:
+          | T
+          | {
+              sectionTitle?: T;
+              sectionParagraph?: T;
+              services?: T;
+              id?: T;
+              blockName?: T;
+            };
+        album?:
+          | T
+          | {
+              albumTitle?: T;
+              photos?: T;
+              id?: T;
+              blockName?: T;
+            };
+        about?:
+          | T
+          | {
+              image?: T;
+              title?: T;
+              paragraphOne?: T;
+              paragraphTwo?: T;
+              instagramLink?: T;
+              id?: T;
+              blockName?: T;
+            };
+        team?:
+          | T
+          | {
+              sectionTitle?: T;
+              sectionParagraph?: T;
+              members?: T;
+              id?: T;
+              blockName?: T;
+            };
+        portfolio?:
+          | T
+          | {
+              sectionTitle?: T;
+              sectionParagraph?: T;
+              projects?:
+                | T
+                | {
+                    projectImage?: T;
+                    height?: T;
+                    id?: T;
+                  };
+              id?: T;
+              blockName?: T;
+            };
       };
   updatedAt?: T;
   createdAt?: T;

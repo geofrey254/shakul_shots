@@ -34,6 +34,8 @@ export default function Portfolio({block}: PortfolioProps) {
     500: 2,
   }
 
+  console.log('Portfolio projects:', filteredProjects)
+
   return (
     <section className="bg-black px-6 md:px-12 lg:px-8 py-20 text-white border-t border-zinc-800">
       <div className="max-w-7xl mx-auto">
@@ -72,8 +74,8 @@ export default function Portfolio({block}: PortfolioProps) {
               }}
             >
               <Image
-                src={project.image}
-                alt={project.title}
+                src={project.projectImage.image.url}
+                alt={project.projectImage.image.alt}
                 width={800}
                 height={600}
                 className="w-full h-auto object-cover transition-transform duration-700 group-hover:scale-110"
@@ -85,12 +87,12 @@ export default function Portfolio({block}: PortfolioProps) {
               {/* Category Badge */}
               <div className="absolute top-4 left-4 px-3 py-1.5 bg-black/60 backdrop-blur-md border border-zinc-700/50 rounded-full text-xs font-medium text-white flex items-center gap-2">
                 <Camera className="w-3 h-3" />
-                {project.category}
+                {project.projectImage.category}
               </div>
 
               {/* Info Overlay */}
-              <div className="absolute bottom-0 left-0 right-0 p-4 opacity-0 group-hover:opacity-100 transition-all duration-500">
-                <h3 className="text-lg font-semibold">{project.title}</h3>
+              <div className="absolute bottom-0 left-0 right-0 p-4  transition-all duration-500">
+                <h3 className="text-lg font-semibold">{project.projectImage.title}</h3>
               </div>
             </div>
           ))}

@@ -6,7 +6,10 @@ interface OurServicesProps {
     sectionTitle: string
     sectionParagraph: string
     services: Array<{
-      icon: string
+      icon: {
+        url: string
+        alt: string
+      }
       title: string
       description: string
     }>

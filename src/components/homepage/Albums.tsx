@@ -1,62 +1,63 @@
-"use client"
-import React, { useState, useEffect } from 'react';
-import { ChevronLeft, ChevronRight } from 'lucide-react';
-import Image from 'next/image';
+'use client'
+import React, { useState, useEffect } from 'react'
+import { ChevronLeft, ChevronRight } from 'lucide-react'
+import Image from 'next/image'
 
 interface AlbumsProps {
-block:{
-  albums: Array<{
-    albumTitle: string;
+  block: {
+    albumTitle: string
     photos: Array<{
-      id:number;
-      url: string;
-      title: string;
-      category: string;
-    }>;
-  }>;
-}
+      id: number
+      image: {
+        url: string
+        alt: string
+      }
+      title: string
+      category: string
+    }>
+  }
 }
 
-export default function Albums({block}: AlbumsProps) {
-  const [currentIndex, setCurrentIndex] = useState(0);
-  const [isAutoPlaying, setIsAutoPlaying] = useState(true);
+export default function Albums({ block }: AlbumsProps) {
+  const [currentIndex, setCurrentIndex] = useState(0)
+  const [isAutoPlaying, setIsAutoPlaying] = useState(true)
 
-  const photos = block.albums.flatMap(album => album.photos);
+  const photos = block.photos
 
   const nextSlide = () => {
-    setCurrentIndex((prev) => (prev + 1) % photos.length);
-  };
+    setCurrentIndex((prev) => (prev + 1) % photos.length)
+  }
 
   const prevSlide = () => {
-    setCurrentIndex((prev) => (prev - 1 + photos.length) % photos.length);
-  };
+    setCurrentIndex((prev) => (prev - 1 + photos.length) % photos.length)
+  }
 
   const goToSlide = (index: number) => {
-    setCurrentIndex(index);
-    setIsAutoPlaying(false);
-  };
+    setCurrentIndex(index)
+    setIsAutoPlaying(false)
+  }
 
   // Auto-play functionality
   useEffect(() => {
-    if (!isAutoPlaying) return;
-    
-    const interval = setInterval(() => {
-      nextSlide();
-    }, 4000);
+    if (!isAutoPlaying) return
 
-    return () => clearInterval(interval);
-  // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [currentIndex, isAutoPlaying]);
+    const interval = setInterval(() => {
+      nextSlide()
+    }, 4000)
+
+    return () => clearInterval(interval)
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [currentIndex, isAutoPlaying])
 
   // Get visible photos (current + 2 on each side for preview)
   const getVisiblePhotos = () => {
-    const visible = [];
+    const visible = []
     for (let i = -2; i <= 2; i++) {
-      const index = (currentIndex + i + photos.length) % photos.length;
-      visible.push({ ...photos[index], offset: i });
+      const index = (currentIndex + i + photos.length) % photos.length
+      visible.push({ ...photos[index], offset: i })
     }
-    return visible;
-  };
+    return visible
+  }
 
   return (
     <>
@@ -87,45 +88,47 @@ export default function Albums({block}: AlbumsProps) {
           transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
         }
       `}</style>
-      
+
       <section className="bg-black px-6 md:px-12 lg:px-8 py-12 md:py-20 text-white border-t border-zinc-800">
         {/* Header */}
-        <div 
+        <div
           className="flex justify-center items-center gap-1 mb-6 text-sm tracking-wider text-gray-400"
           style={{ animation: 'slideIn 0.5s ease-out' }}
         >
           <span>02</span>
-          <span className="text-zinc-600">{"//"}</span>
+          <span className="text-zinc-600">{'//'}</span>
           <span className="font-medium">PHOTO ALBUMS</span>
         </div>
-        
+
         {/* Title Grid */}
         <div className="flex md:justify-center items-center">
           <div className="max-w-3xl">
-            <h2 
+            <h2
               className="text-4xl md:text-5xl lg:text-6xl text-center text-white font-semibold tracking-tight leading-tight"
               style={{ animation: 'fadeInUp 0.6s ease-out 0.1s both' }}
             >
-              Collection of photos All of Your Best Works
+              {block.albumTitle}{' '}
             </h2>
           </div>
         </div>
-        
+
         {/* Photo Slider */}
         <div className="relative" style={{ animation: 'fadeInUp 0.6s ease-out 0.3s both' }}>
           {/* Main Slider Container */}
           <div className="relative h-[600px] md:h-[500px] lg:h-[600px] overflow-hidden">
-            <div className='absolute bottom-0 left-0 -z-50'><h2 className='text-[20rem] text-white opacity-30 blur-lg'>SHAKUL</h2></div>
+            <div className="absolute bottom-0 left-0 -z-50">
+              <h2 className="text-[20rem] text-white opacity-30 blur-lg">SHAKUL</h2>
+            </div>
             {/* Photos */}
             <div className="absolute inset-0 flex items-center justify-center">
               {getVisiblePhotos().map((photo, idx) => {
-                const { offset } = photo;
-                const isCenter = offset === 0;
-                const scale = isCenter ? 1 : 0.75;
-                const opacity = Math.abs(offset) === 0 ? 1 : Math.abs(offset) === 1 ? 0.6 : 0.3;
-                const zIndex = 10 - Math.abs(offset);
-                const translateX = offset * 320; // Spacing between photos
-                const blur = Math.abs(offset) > 0 ? 'blur(2px)' : 'blur(0)';
+                const { offset } = photo
+                const isCenter = offset === 0
+                const scale = isCenter ? 1 : 0.75
+                const opacity = Math.abs(offset) === 0 ? 1 : Math.abs(offset) === 1 ? 0.6 : 0.3
+                const zIndex = 10 - Math.abs(offset)
+                const translateX = offset * 320 // Spacing between photos
+                const blur = Math.abs(offset) > 0 ? 'blur(2px)' : 'blur(0)'
 
                 return (
                   <div
@@ -137,21 +140,26 @@ export default function Albums({block}: AlbumsProps) {
                       zIndex: zIndex,
                       filter: blur,
                       width: '280px',
-                      height: isCenter ? '420px' : '380px'
+                      height: isCenter ? '420px' : '380px',
                     }}
-                    onClick={() => !isCenter && goToSlide((currentIndex + offset + photos.length) % photos.length)}
+                    onClick={() =>
+                      !isCenter &&
+                      goToSlide((currentIndex + offset + photos.length) % photos.length)
+                    }
                   >
-                    <div className={`relative w-full h-full rounded-lg overflow-hidden ${isCenter ? 'ring-2 ring-white shadow-2xl' : ''}`}>
+                    <div
+                      className={`relative w-full h-full rounded-lg overflow-hidden ${isCenter ? 'ring-2 ring-white shadow-2xl' : ''}`}
+                    >
                       <Image
-                        src={photo.url}
+                        src={photo.image.url}
                         alt={photo.title}
                         fill
                         className="w-full h-full object-cover"
                       />
-                      
+
                       {/* Overlay gradient */}
                       <div className="absolute inset-0 bg-linear-to-t from-black/80 via-black/20 to-transparent"></div>
-                      
+
                       {/* Photo info - only visible on center photo */}
                       {isCenter && (
                         <div className="absolute bottom-0 left-0 right-0 p-6">
@@ -165,14 +173,17 @@ export default function Albums({block}: AlbumsProps) {
                       )}
                     </div>
                   </div>
-                );
+                )
               })}
             </div>
           </div>
 
           {/* Navigation Buttons */}
           <button
-            onClick={() => { prevSlide(); setIsAutoPlaying(false); }}
+            onClick={() => {
+              prevSlide()
+              setIsAutoPlaying(false)
+            }}
             className="absolute left-4 top-1/2 -translate-y-1/2 z-20 w-12 h-12 rounded-full bg-white/10 backdrop-blur-sm border border-white/20 flex items-center justify-center hover:bg-white/20 transition-all duration-300 group"
             aria-label="Previous photo"
           >
@@ -180,7 +191,10 @@ export default function Albums({block}: AlbumsProps) {
           </button>
 
           <button
-            onClick={() => { nextSlide(); setIsAutoPlaying(false); }}
+            onClick={() => {
+              nextSlide()
+              setIsAutoPlaying(false)
+            }}
             className="absolute right-4 top-1/2 -translate-y-1/2 z-20 w-12 h-12 rounded-full bg-white/10 backdrop-blur-sm border border-white/20 flex items-center justify-center hover:bg-white/20 transition-all duration-300 group"
             aria-label="Next photo"
           >
@@ -194,9 +208,7 @@ export default function Albums({block}: AlbumsProps) {
                 key={index}
                 onClick={() => goToSlide(index)}
                 className={`h-1.5 rounded-full transition-all duration-300 ${
-                  index === currentIndex 
-                    ? 'w-12 bg-white' 
-                    : 'w-1.5 bg-gray-600 hover:bg-gray-400'
+                  index === currentIndex ? 'w-12 bg-white' : 'w-1.5 bg-gray-600 hover:bg-gray-400'
                 }`}
                 aria-label={`Go to photo ${index + 1}`}
               />
@@ -210,5 +222,5 @@ export default function Albums({block}: AlbumsProps) {
         </div>
       </section>
     </>
-  );
+  )
 }

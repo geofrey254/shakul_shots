@@ -2,7 +2,10 @@ import React from 'react'
 import Image from 'next/image';
 
 interface ServiceCardProps {
-  icon: string;
+  icon: {
+    url: string;
+    alt: string;
+  };
   title: string;
   description: string;
   delay?: number;
@@ -23,7 +26,7 @@ export default function ServiceCard ({icon, title, description, delay}: ServiceC
         {/* Icon container with animatiaon */}
         <div className="mb-6 inline-block">
           <div className="w-16 h-16 rounded-full bg-zinc-800 border border-zinc-700 flex items-center justify-center group-hover:bg-zinc-700 group-hover:border-zinc-600 group-hover:scale-110 transition-all duration-300">
-<Image src={icon} width={500} height={500} alt='Service Icon'/>
+<Image src={icon.url} width={500} height={500} alt={icon.alt}/>
           </div>
         </div>
         

@@ -12,6 +12,7 @@ import { Media } from './collections/Media'
 import { Services } from './collections/Services'
 import { Gallery } from './collections/Gallery'
 import { Team } from './collections/Team'
+import { Pages } from './collections/Pages'
 
 const filename = fileURLToPath(import.meta.url)
 const dirname = path.dirname(filename)
@@ -23,10 +24,10 @@ export default buildConfig({
       baseDir: path.resolve(dirname),
     },
   },
-  collections: [Users, Media, Services, Gallery, Team],
+  collections: [Users, Media, Services, Gallery, Team, Pages],
   editor: lexicalEditor(),
   secret: process.env.PAYLOAD_SECRET || '',
-  serverURL: process.env.PAYLOAD_SERVER_URL || 'http://localhost:3000',
+  serverURL: 'http://localhost:3000',
   typescript: {
     outputFile: path.resolve(dirname, 'payload-types.ts'),
   },
@@ -48,10 +49,10 @@ export default buildConfig({
         forcePathStyle: true,
         credentials: {
           accessKeyId: process.env.S3_ACCESS_KEY_ID || '',
-          secretAccessKey: process.env.S3_SECRET_ACCESS_KEY || '',
+          secretAccessKey: process.env.S3_SECRET || '',
         },
         region: process.env.S3_REGION,
-        endpoint: process.env.S3_ENDPOINT,
+        endpoint: process.env.S3_ENDPOINT_URL,
       },
     }),
   ],
