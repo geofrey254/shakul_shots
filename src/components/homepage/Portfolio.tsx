@@ -6,132 +6,26 @@ import Masonry from 'react-masonry-css'
 import Image from 'next/image'
 import { Camera } from 'lucide-react'
 
-export default function Portfolio() {
+interface PortfolioProps {
+  block: {
+    sectionTitle: string
+    sectionParagraph: string
+    projects: Array<{
+      id: number
+      projectImage: {
+        url: string
+        alt: string
+        category: string
+        title: string
+      }
+      height: 'short' | 'medium' | 'tall'
+    }>
+  }
+}
 
-  const projects = [
-    {
-      id: 1,
-      title: 'Golden Hour Wedding',
-      category: 'Wedding',
-      image: 'https://images.unsplash.com/photo-1519741497674-611481863552?w=800&q=80',
-      likes: 234,
-      views: 1523,
-      height: 'tall',
-      description: 'A breathtaking sunset ceremony captured in stunning detail.',
-    },
-    {
-      id: 2,
-      title: 'Urban Portrait',
-      category: 'Portrait',
-      image: 'https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?w=800&q=80',
-      likes: 189,
-      views: 982,
-      height: 'medium',
-      description: 'Modern street photography with dramatic lighting.',
-    },
-    {
-      id: 3,
-      title: 'Aerial Landscape',
-      category: 'Aerial',
-      image: 'https://images.unsplash.com/photo-1473496169904-658ba7c44d8a?w=800&q=80',
-      likes: 567,
-      views: 3421,
-      height: 'short',
-      description: "Breathtaking bird's eye view of coastal beauty.",
-    },
-    {
-      id: 4,
-      title: 'Fashion Editorial',
-      category: 'Fashion',
-      image: 'https://images.unsplash.com/photo-1509631179647-0177331693ae?w=800&q=80',
-      likes: 432,
-      views: 2156,
-      height: 'tall',
-      description: 'High fashion editorial with bold creative direction.',
-    },
-    {
-      id: 5,
-      title: 'Corporate Event',
-      category: 'Event',
-      image: 'https://images.unsplash.com/photo-1511578314322-379afb476865?w=800&q=80',
-      likes: 156,
-      views: 876,
-      height: 'medium',
-      description: 'Professional corporate gathering documentation.',
-    },
-    {
-      id: 6,
-      title: 'Intimate Moments',
-      category: 'Wedding',
-      image: 'https://images.unsplash.com/photo-1606800052052-a08af7148866?w=800&q=80',
-      likes: 298,
-      views: 1654,
-      height: 'short',
-      description: 'Candid moments of love and celebration.',
-    },
-    {
-      id: 7,
-      title: 'Studio Portrait',
-      category: 'Portrait',
-      image: 'https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=800&q=80',
-      likes: 412,
-      views: 2341,
-      height: 'tall',
-      description: 'Classic studio portrait with timeless elegance.',
-    },
-    {
-      id: 8,
-      title: 'Drone Cityscape',
-      category: 'Aerial',
-      image: 'https://images.unsplash.com/photo-1480714378408-67cf0d13bc1b?w=800&q=80',
-      likes: 678,
-      views: 4532,
-      height: 'medium',
-      description: 'Urban architecture from a unique perspective.',
-    },
-    {
-      id: 9,
-      title: 'Runway Show',
-      category: 'Fashion',
-      image: 'https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=800&q=80',
-      likes: 523,
-      views: 3210,
-      height: 'short',
-      description: 'Fashion week runway captured in motion.',
-    },
-    {
-      id: 10,
-      title: 'Conference Coverage',
-      category: 'Event',
-      image: 'https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=800&q=80',
-      likes: 187,
-      views: 1098,
-      height: 'medium',
-      description: 'Dynamic event photography with energy.',
-    },
-    {
-      id: 11,
-      title: 'Beach Ceremony',
-      category: 'Wedding',
-      image: 'https://images.unsplash.com/photo-1583939003579-730e3918a45a?w=800&q=80',
-      likes: 445,
-      views: 2876,
-      height: 'tall',
-      description: 'Romantic beachside wedding celebration.',
-    },
-    {
-      id: 12,
-      title: 'Mountain Vista',
-      category: 'Aerial',
-      image: 'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=800&q=80',
-      likes: 789,
-      views: 5123,
-      height: 'short',
-      description: 'Majestic mountain ranges from above.',
-    },
-  ]
+export default function Portfolio({block}: PortfolioProps) {
 
-  const filteredProjects = projects
+  const filteredProjects = block.projects
 
   const breakpointColumnsObj = {
     default: 2,
