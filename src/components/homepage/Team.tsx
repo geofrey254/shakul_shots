@@ -2,83 +2,35 @@
 import React from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
-import {
-  Carousel,
-  CarouselContent,
-  CarouselItem,
-} from '@/components/ui/carousel'
+import { Carousel, CarouselContent, CarouselItem } from '@/components/ui/carousel'
 import Autoplay from 'embla-carousel-autoplay'
 import { Instagram, Linkedin, Camera } from 'lucide-react'
+import { FiFacebook } from 'react-icons/fi'
+import { RiTiktokLine } from "react-icons/ri";
 
-export default function Team() {
-  const teamMembers = [
-    {
-      name: 'Alex Johnson',
-      role: 'Lead Photographer',
-      specialty: 'Wedding & Portrait',
-      image: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&q=80',
-      bio: "10+ years capturing life's most precious moments with artistic vision.",
-      social: {
-        instagram: '#',
-        linkedin: '#',
-      },
-    },
-    {
-      name: 'Sarah Mitchell',
-      role: 'Drone Cinematographer',
-      specialty: 'Aerial Photography',
-      image: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=400&q=80',
-      bio: 'Specialized in breathtaking aerial shots and cinematic storytelling.',
-      social: {
-        instagram: '#',
-        linkedin: '#',
-      },
-    },
-    {
-      name: 'Marcus Chen',
-      role: 'Creative Director',
-      specialty: 'Editorial & Fashion',
-      image: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=400&q=80',
-      bio: 'Award-winning photographer with a passion for creative excellence.',
-      social: {
-        instagram: '#',
-        linkedin: '#',
-      },
-    },
-    {
-      name: 'Emily Rodriguez',
-      role: 'Portrait Specialist',
-      specialty: 'Studio & Lifestyle',
-      image: 'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=400&q=80',
-      bio: 'Expert in capturing authentic emotions and personality in every shot.',
-      social: {
-        instagram: '#',
-        linkedin: '#',
-      },
-    },
-    {
-      name: 'David Thompson',
-      role: 'Event Photographer',
-      specialty: 'Corporate & Events',
-      image: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=400&q=80',
-      bio: 'Documenting unforgettable moments with precision and creativity.',
-      social: {
-        instagram: '#',
-        linkedin: '#',
-      },
-    },
-    {
-      name: 'Lisa Anderson',
-      role: 'Photo Editor',
-      specialty: 'Post-Production',
-      image: 'https://images.unsplash.com/photo-1489424731084-a5d8b219a5bb?w=400&q=80',
-      bio: 'Transforming raw captures into stunning visual masterpieces.',
-      social: {
-        instagram: '#',
-        linkedin: '#',
-      },
-    },
-  ]
+interface TeamProps {
+  block: {
+    sectionTitle: string
+    sectionParagraph: string
+    members: Array<{
+      name: string
+      role: string
+      photo: {
+        url: string
+        alt: string
+      }
+      socialLinks: {
+        instagram?: string
+        linkedin?: string
+        facebook?: string
+        tiktok?: string
+      }
+    }>
+  }
+}
+
+export default function Team({ block }: TeamProps) {
+  const teamMembers = block.members
 
   return (
     <>
@@ -90,7 +42,7 @@ export default function Team() {
             style={{ animation: 'slideIn 0.5s ease-out' }}
           >
             <span>04</span>
-            <span className="text-zinc-600">{"//"}</span>
+            <span className="text-zinc-600">{'//'}</span>
             <span className="font-medium">OUR TEAM</span>
           </div>
 
@@ -101,7 +53,7 @@ export default function Team() {
                 className="text-4xl md:text-5xl lg:text-6xl text-white font-semibold"
                 style={{ animation: 'fadeInUp 0.6s ease-out 0.1s both' }}
               >
-                Our Core Team of Photographers
+                {block.sectionTitle}{' '}
               </h2>
             </div>
 
@@ -112,8 +64,7 @@ export default function Team() {
                 className="text-gray-400 text-base md:text-lg leading-relaxed"
                 style={{ animation: 'fadeInUp 0.6s ease-out 0.2s both' }}
               >
-                We{"'"}re deeply passionate about catching your lovely memories through our lenses and
-                conveying your love for every moment of life as a whole.
+                {block.sectionParagraph}
               </p>
             </div>
           </div>
@@ -143,8 +94,8 @@ export default function Team() {
                     {/* Image Container */}
                     <div className="relative h-96 overflow-hidden mb-6 group">
                       <Image
-                        src={member.image}
-                        alt={member.name}
+                        src={member.photo.url}
+                        alt={member.photo.alt}
                         fill
                         className="object-cover transition-transform duration-700 group-hover:scale-110"
                       />
@@ -155,7 +106,7 @@ export default function Team() {
                       {/* Specialty Badge */}
                       <div className="absolute top-4 left-4 specialty-badge z-20">
                         <div className="px-4 py-1.5 bg-black/60 backdrop-blur-md border border-zinc-700/50 rounded-full text-xs font-medium text-white shadow-lg">
-                          {member.specialty}
+                          {member.role}
                         </div>
                       </div>
 
@@ -171,20 +122,44 @@ export default function Team() {
                             <div className="space-y-3">
                               {/* Social Links */}
                               <div className="social-links flex gap-2 mt-4">
-                                <Link
-                                  href={member.social.instagram}
-                                  className="w-9 h-9 rounded-full bg-white/10 backdrop-blur-sm border border-white/20 flex items-center justify-center hover:bg-white hover:text-black transition-all duration-300"
-                                  aria-label="Instagram"
-                                >
-                                  <Instagram className="w-4 h-4" />
-                                </Link>
-                                <Link
-                                  href={member.social.linkedin}
-                                  className="w-9 h-9 rounded-full bg-white/10 backdrop-blur-sm border border-white/20 flex items-center justify-center hover:bg-white hover:text-black transition-all duration-300"
-                                  aria-label="LinkedIn"
-                                >
-                                  <Linkedin className="w-4 h-4" />
-                                </Link>
+                                {member.socialLinks.instagram && (
+                                  <Link
+                                    href={member.socialLinks.instagram}
+                                    className="w-9 h-9 rounded-full bg-white/10 backdrop-blur-sm border border-white/20 flex items-center justify-center hover:bg-white hover:text-black transition-all duration-300"
+                                    aria-label="Instagram"
+                                  >
+                                    <Instagram className="w-4 h-4" />
+                                  </Link>
+                                )}
+                                {member.socialLinks.linkedin && (
+                                  <Link
+                                    href={member.socialLinks.linkedin}
+                                    className="w-9 h-9 rounded-full bg-white/10 backdrop-blur-sm border border-white/20 flex items-center justify-center hover:bg-white hover:text-black transition-all duration-300"
+                                    aria-label="LinkedIn"
+                                  >
+                                    <Linkedin className="w-4 h-4" />
+                                  </Link>
+                                )}
+
+                                {member.socialLinks.facebook && (
+                                  <Link
+                                    href={member.socialLinks.facebook}
+                                    className="w-9 h-9 rounded-full bg-white/10 backdrop-blur-sm border border-white/20 flex items-center justify-center hover:bg-white hover:text-black transition-all duration-300"
+                                    aria-label="Facebook"
+                                  >
+                                    <FiFacebook className="w-4 h-4" />{' '}
+                                  </Link>
+                                )}
+
+                                {member.socialLinks.tiktok && (
+                                  <Link
+                                    href={member.socialLinks.tiktok}
+                                    className="w-9 h-9 rounded-full bg-white/10 backdrop-blur-sm border border-white/20 flex items-center justify-center hover:bg-white hover:text-black transition-all duration-300"
+                                    aria-label="TikTok"
+                                  >
+                                    <RiTiktokLine className="w-4 h-4" />{' '}
+                                  </Link>
+                                )}
                               </div>
                             </div>
                           </div>
@@ -195,8 +170,6 @@ export default function Team() {
                 </CarouselItem>
               ))}
             </CarouselContent>
-
-          
           </Carousel>
         </div>
       </section>
