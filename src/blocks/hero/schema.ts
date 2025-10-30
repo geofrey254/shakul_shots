@@ -11,12 +11,12 @@ export const HeroBlock: Block = {
         maxRows:5,
         fields:[
           {
-            type:'upload',
-            name:'image',
-            label:'Image',
-            relationTo:'media',
-            required:true,
-          },
+          type: 'relationship',
+          name: 'image',
+          label: 'Gallery Image',
+          relationTo: 'gallery',
+          required: true,
+        },
           {
             type:'text',
             name:'title',
@@ -28,6 +28,11 @@ export const HeroBlock: Block = {
             name:'subtitle',
             label:'Subtitle',
           },
+          {
+            type:'text',
+            name:'description',
+            label:'Description',
+          }
         ]
       }
     ]

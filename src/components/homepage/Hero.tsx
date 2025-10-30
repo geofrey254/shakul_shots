@@ -12,33 +12,29 @@ import {
   CarouselNext,
   CarouselPrevious,
 } from '@/components/ui/carousel'
-import Autoplay from "embla-carousel-autoplay"
+import Autoplay from 'embla-carousel-autoplay'
 
+interface HeroProps {
+  block: {
+    slides: Array<{
+      image: {
+        url: string
+        alt: string
+        category: string
+      }
+      title: string
+      subtitle: string
+      description: string
+    }>
+  }
+}
 
-export default function Hero() {
-  const slides = [
-    {
-      image: '/images/bg1.jpg',
-      category: 'Portrait',
-      title: 'Shakul Shots',
-      subtitle: 'Visual Storyteller',
-      description: 'Capturing authentic moments through the lens of creativity and emotion.',
-    },
-    {
-      image: '/images/bg2.jpg',
-      category: 'Commercial',
-      title: 'Brand Stories',
-      subtitle: 'Professional Photography',
-      description: 'Elevating brands with compelling visual narratives that resonate.',
-    },
-    {
-      image: '/images/bg3.jpg',
-      category: 'Lifestyle',
-      title: 'Natural Moments',
-      subtitle: 'Candid Sessions',
-      description: 'Documenting life as it unfolds, one authentic frame at a time.',
-    },
-  ]
+export default function Hero({ block }: HeroProps) {
+  const slider = block?.slides?.filter((s) => s && s.image?.url) ?? []
+
+  if (slider.length === 0) {
+    return null
+  }
 
   return (
     <section className="relative h-screen w-full overflow-hidden bg-black">
@@ -49,17 +45,17 @@ export default function Hero() {
           loop: true,
         }}
         plugins={[
-        Autoplay({
-          delay: 3000,
-        }),
-      ]}
+          Autoplay({
+            delay: 3000,
+          }),
+        ]}
       >
         {' '}
         <CarouselContent className="h-full">
-          {slides.map((slide, index) => (
+          {slider.map((slide, index) => (
             <CarouselItem key={index} className="relative h-screen w-full">
               <Image
-                src={slide.image}
+                src={slide.image.url}
                 alt={slide.title}
                 fill
                 quality={100}
@@ -77,7 +73,7 @@ export default function Hero() {
                   <div className="max-w-xl space-y-6">
                     <span className="inline-flex items-center gap-2 text-[#feeede] text-xs font-light tracking-[0.2em] uppercase">
                       <span className="w-8 h-px bg-[#feeede]/50"></span>
-                      {slide.category}
+                      {slide.image.category}
                     </span>
 
                     <h1 className="text-white text-5xl md:text-6xl font-bold leading-tight">

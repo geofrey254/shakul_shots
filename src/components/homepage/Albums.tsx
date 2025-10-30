@@ -3,49 +3,25 @@ import React, { useState, useEffect } from 'react';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
 import Image from 'next/image';
 
-export default function Albums() {
+interface AlbumsProps {
+block:{
+  albums: Array<{
+    albumTitle: string;
+    photos: Array<{
+      id:number;
+      url: string;
+      title: string;
+      category: string;
+    }>;
+  }>;
+}
+}
+
+export default function Albums({block}: AlbumsProps) {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isAutoPlaying, setIsAutoPlaying] = useState(true);
 
-  // Sample photos - replace with your actual images
-  const photos = [
-    {
-      id: 1,
-      url: 'https://images.unsplash.com/photo-1519741497674-611481863552?w=800&q=80',
-      title: 'Wedding Ceremony',
-      category: 'Weddings'
-    },
-    {
-      id: 2,
-      url: 'https://images.unsplash.com/photo-1511285560929-80b456fea0bc?w=800&q=80',
-      title: 'Aerial Landscape',
-      category: 'Drone'
-    },
-    {
-      id: 3,
-      url: 'https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?w=800&q=80',
-      title: 'Portrait Session',
-      category: 'Portfolio'
-    },
-    {
-      id: 4,
-      url: 'https://images.unsplash.com/photo-1492691527719-9d1e07e534b4?w=800&q=80',
-      title: 'Candid Moments',
-      category: 'Photography'
-    },
-    {
-      id: 5,
-      url: 'https://images.unsplash.com/photo-1465495976277-4387d4b0b4c6?w=800&q=80',
-      title: 'Nature Beauty',
-      category: 'Photography'
-    },
-    {
-      id: 6,
-      url: 'https://images.unsplash.com/photo-1522673607200-164d1b6ce486?w=800&q=80',
-      title: 'Love Story',
-      category: 'Weddings'
-    }
-  ];
+  const photos = block.albums.flatMap(album => album.photos);
 
   const nextSlide = () => {
     setCurrentIndex((prev) => (prev + 1) % photos.length);
@@ -69,6 +45,7 @@ export default function Albums() {
     }, 4000);
 
     return () => clearInterval(interval);
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [currentIndex, isAutoPlaying]);
 
   // Get visible photos (current + 2 on each side for preview)
