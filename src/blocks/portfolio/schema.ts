@@ -16,38 +16,12 @@ export const PortfolioBlock: Block = {
       required: true,
     },
     {
-      type: 'array',
+      type: 'relationship',
       name: 'projects',
       label: 'Projects',
-      fields: [
-        {
-          type: 'relationship',
-          name: 'projectImage',
-          label: 'Project Image',
-          relationTo: 'gallery',
-          required: true,
-        },
-        {
-          type: 'select',
-          name: 'height',
-          label: 'Image Height',
-          required: true,
-          options: [
-            {
-              label: 'Short',
-              value: 'short',
-            },
-            {
-              label: 'Medium',
-              value: 'medium',
-            },
-            {
-              label: 'Tall',
-              value: 'tall',
-            },
-          ],
-        }
-      ],
+      relationTo: 'gallery',
+      hasMany: true,
+      required: true,
     },
   ],
 }

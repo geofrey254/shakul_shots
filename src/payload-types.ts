@@ -275,13 +275,7 @@ export interface Page {
     | {
         sectionTitle: string;
         sectionParagraph: string;
-        projects?:
-          | {
-              projectImage: number | Gallery;
-              height: 'short' | 'medium' | 'tall';
-              id?: string | null;
-            }[]
-          | null;
+        projects: (number | Gallery)[];
         id?: string | null;
         blockName?: string | null;
         blockType: 'portfolio';
@@ -511,13 +505,7 @@ export interface PagesSelect<T extends boolean = true> {
           | {
               sectionTitle?: T;
               sectionParagraph?: T;
-              projects?:
-                | T
-                | {
-                    projectImage?: T;
-                    height?: T;
-                    id?: T;
-                  };
+              projects?: T;
               id?: T;
               blockName?: T;
             };

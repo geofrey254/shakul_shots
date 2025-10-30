@@ -12,19 +12,18 @@ interface PortfolioProps {
     sectionParagraph: string
     projects: Array<{
       id: number
-      projectImage: {
-        url: string
-        alt: string
+        image: {
+          url: string
+          alt: string
+        }
         category: string
         title: string
-      }
-      height: 'short' | 'medium' | 'tall'
+      
     }>
   }
 }
 
-export default function Portfolio({block}: PortfolioProps) {
-
+export default function Portfolio({ block }: PortfolioProps) {
   const filteredProjects = block.projects
 
   const breakpointColumnsObj = {
@@ -45,7 +44,7 @@ export default function Portfolio({block}: PortfolioProps) {
           style={{ animation: 'slideIn 0.5s ease-out' }}
         >
           <span>05</span>
-          <span className="text-zinc-600">{"//"}</span>
+          <span className="text-zinc-600">{'//'}</span>
           <span className="font-medium">PORTFOLIO</span>
         </div>
 
@@ -74,8 +73,8 @@ export default function Portfolio({block}: PortfolioProps) {
               }}
             >
               <Image
-                src={project.projectImage.image.url}
-                alt={project.projectImage.image.alt}
+                src={project.image.url}
+                alt={project.image.alt}
                 width={800}
                 height={600}
                 className="w-full h-auto object-cover transition-transform duration-700 group-hover:scale-110"
@@ -87,12 +86,12 @@ export default function Portfolio({block}: PortfolioProps) {
               {/* Category Badge */}
               <div className="absolute top-4 left-4 px-3 py-1.5 bg-black/60 backdrop-blur-md border border-zinc-700/50 rounded-full text-xs font-medium text-white flex items-center gap-2">
                 <Camera className="w-3 h-3" />
-                {project.projectImage.category}
+                {project.category}
               </div>
 
               {/* Info Overlay */}
               <div className="absolute bottom-0 left-0 right-0 p-4  transition-all duration-500">
-                <h3 className="text-lg font-semibold">{project.projectImage.title}</h3>
+                <h3 className="text-lg font-semibold">{project.title}</h3>
               </div>
             </div>
           ))}
