@@ -30,7 +30,7 @@ export default buildConfig({
   collections: [Users, Media, Services, Gallery, Team, Pages],
   editor: lexicalEditor(),
   secret: process.env.PAYLOAD_SECRET || '',
-  serverURL: process.env.NEXT_PUBLIC_PAYLOAD_URL || 'http://localhost:3000',
+  serverURL: process.env.NEXT_PUBLIC_PAYLOAD_URL, // e.g., 'http://localhost:3000'
   typescript: {
     outputFile: path.resolve(dirname, 'payload-types.ts'),
   },
