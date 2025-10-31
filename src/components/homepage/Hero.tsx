@@ -71,7 +71,7 @@ export default function Hero({ block }: HeroProps) {
 
               {/* Text Content */}
               <div className="relative z-20 flex md:items-center items-end h-full">
-                <div className="container mx-auto px-8 lg:px-16 pb-16 md:pb-0 pt-0 md:pt-16 max-w-7xl">
+                <div className="container mx-auto px-8 lg:px-16 pb-16 md:pb-0 pt-0 md:pt-16 max-w-7xl 2xl:max-w-full">
                   <div className="max-w-xl space-y-6">
                     <span className="inline-flex items-center gap-2 text-[#feeede] text-xs font-light tracking-[0.2em] uppercase">
                       <span className="w-8 h-px bg-[#feeede]/50"></span>

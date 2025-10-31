@@ -89,7 +89,7 @@ export default function Albums({ block }: AlbumsProps) {
         }
       `}</style>
 
-      <section className="bg-black px-6 md:px-12 lg:px-8 py-12 md:py-20 text-white border-t border-zinc-800">
+      <section className="bg-black px-6 md:px-12 lg:px-8 2xl:px-16 py-12 md:py-20 text-white border-t border-zinc-800">
         {/* Header */}
         <div
           className="flex justify-center items-center gap-1 mb-6 text-sm tracking-wider text-gray-400"

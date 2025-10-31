@@ -201,8 +201,8 @@ export default function Contact({ block }:ContactProps) {
         }
       `}</style>
 
-      <section id='contact' className="bg-black px-6 md:px-12 lg:px-16 py-20 text-white border-t border-zinc-800">
-        <div className="max-w-6xl mx-auto">
+      <section id='contact' className="bg-black px-6 md:px-12 lg:px-8 2xl:px-16 py-20 text-white border-t border-zinc-800">
+        <div className="max-w-6xl 2xl:max-w-full mx-auto">
           {/* Header */}
           <div
             className="flex items-center gap-1 mb-6 text-sm tracking-wider text-gray-400"

@@ -33,8 +33,8 @@ export default function Portfolio({ block }: PortfolioProps) {
     500: 2,
   }
   return (
-    <section className="bg-black px-6 md:px-12 lg:px-8 py-20 text-white border-t border-zinc-800">
-      <div className="max-w-7xl mx-auto">
+    <section className="bg-black px-6 md:px-12 lg:px-8 2xl:px-16 py-20 text-white border-t border-zinc-800" id='porfolio'>
+      <div className="max-w-7xl 2xl:max-w-full mx-auto">
         {/* Header */}
         <div
           className="flex md:justify-center items-center gap-1 mb-6 text-sm tracking-wider text-gray-400"

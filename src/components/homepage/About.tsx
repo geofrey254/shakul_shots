@@ -19,7 +19,7 @@ interface AboutProps {
 
 export default function About({block}: AboutProps) {
   return (
-    <section id='about' className="bg-black px-6 md:px-12 lg:px-8 py-12 md:py-20">
+    <section id='about' className="bg-black px-6 md:px-12 lg:px-8 2xl:px-16 py-12 md:py-20">
       <div
         className="flex items-center gap-1 mb-6 text-sm tracking-wider text-gray-400"
         style={{ animation: 'slideIn 0.5s ease-out' }}
@@ -39,7 +39,7 @@ export default function About({block}: AboutProps) {
         </div>
 
         <div className="col-span-12 md:col-span-6 flex md:justify-end">
-          <Link href="#" className="bg-white text-black px-6 py-4">
+          <Link href="#contact" className="bg-white text-black px-6 py-4">
             Book Us Now
           </Link>
         </div>

@@ -49,9 +49,9 @@ export default function Team({ block }: TeamProps) {
   }
 
   return (
-    <section className="bg-black px-6 md:px-12 lg:px-8 py-20 text-white border-t border-zinc-800">
+    <section className="bg-black px-6 md:px-12 lg:px-8 2xl:px-16 py-20 text-white border-t border-zinc-800">
       {' '}
-      <div className="max-w-7xl mx-auto">
+      <div className="max-w-7xl 2xl:max-w-full mx-auto">
         {/* Header */}
         <div
           className="flex items-center gap-1 mb-6 text-sm tracking-wider text-gray-400"
@@ -85,7 +85,7 @@ export default function Team({ block }: TeamProps) {
       </div>
       {/* Team Carousel */}
       <div
-        className="relative max-w-[95vw] mx-auto"
+        className="relative max-w-[95vw] 2xl:max-w-full mx-auto"
         style={{ animation: 'fadeInUp 0.6s ease-out 0.3s both' }}
       >
         <Carousel
