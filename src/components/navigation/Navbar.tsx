@@ -176,7 +176,7 @@ export default function Navbar() {
                       {[
                         {
                           icon: FaFacebook,
-                          href: 'https://facebook.com/shakulshots',
+                          href: 'https://facebook.com/shakul_shots',
                           name: 'Facebook',
                         },
                         {
@@ -184,11 +184,11 @@ export default function Navbar() {
                           href: 'https://instagram.com/shakul_shots',
                           name: 'Instagram',
                         },
-                        { icon: FaXTwitter, href: 'https://twitter.com/shakulshots', name: 'X' },
-                        { icon: FaTiktok, href: 'https://tiktok.com/@shakulshots', name: 'TikTok' },
+                        { icon: FaXTwitter, href: 'https://twitter.com/shakul_shots', name: 'X' },
+                        { icon: FaTiktok, href: 'https://www.tiktok.com/@shakul_shots', name: 'TikTok' },
                         {
                           icon: FaYoutube,
-                          href: 'https://youtube.com/@shakulshots',
+                          href: 'https://youtube.com/@shakul_shots',
                           name: 'YouTube',
                         },
                       ].map((social, i) => (
@@ -269,15 +269,15 @@ export default function Navbar() {
             </p>
             <div className="grid grid-cols-2 gap-3">
               {[
-                { icon: FaFacebook, href: 'https://facebook.com/shakulshots', name: 'Facebook' },
+                { icon: FaFacebook, href: 'https://facebook.com/shakul_shots', name: 'Facebook' },
                 {
                   icon: FaInstagram,
-                  href: 'https://instagram.com/shakul_shots',
+                  href: 'https://www.instagram.com/shakul_shots',
                   name: 'Instagram',
                 },
-                { icon: FaXTwitter, href: 'https://twitter.com/shakulshots', name: 'X' },
-                { icon: FaTiktok, href: 'https://tiktok.com/@shakulshots', name: 'TikTok' },
-                { icon: FaYoutube, href: 'https://youtube.com/@shakulshots', name: 'YouTube' },
+                { icon: FaXTwitter, href: 'https://twitter.com/shakul_shots', name: 'X' },
+                { icon: FaTiktok, href: 'https://www.tiktok.com/@shakul_shots', name: 'TikTok' },
+                { icon: FaYoutube, href: 'https://youtube.com/@shakul_shots', name: 'YouTube' },
               ].map((social, i) => (
                 <Link
                   key={i}

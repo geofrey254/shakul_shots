@@ -2,7 +2,8 @@
 "use client"
 import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
-import { Mail, Phone, MapPin, Send, Instagram, Linkedin, Camera, ArrowUpRight, Loader2 } from 'lucide-react';
+import { Mail, Phone, MapPin, Send, ArrowUpRight, Loader2 } from 'lucide-react';
+import { FaFacebook, FaInstagram, FaTiktok } from 'react-icons/fa'
 
 interface ContactProps {
   block:{
@@ -289,22 +290,22 @@ export default function Contact({ block }:ContactProps) {
                 <p className="text-sm text-gray-500 mb-4">Follow us</p>
                 <div className="flex gap-3">
                   <Link
-                    href="#"
+                    href={block.instagramLink || '#'}
                     className="w-12 h-12 rounded-full bg-zinc-900 border border-zinc-800 flex items-center justify-center hover:bg-white hover:text-black transition-all duration-300"
                   >
-                    <Instagram className="w-5 h-5" />
+                    <FaInstagram className="w-5 h-5" />
+                  </Link>
+                  <Link
+                    href={block.tiktokLink || '#'}
+                    className="w-12 h-12 rounded-full bg-zinc-900 border border-zinc-800 flex items-center justify-center hover:bg-white hover:text-black transition-all duration-300"
+                  >
+                    <FaTiktok className="w-5 h-5" />
                   </Link>
                   <Link
                     href="#"
                     className="w-12 h-12 rounded-full bg-zinc-900 border border-zinc-800 flex items-center justify-center hover:bg-white hover:text-black transition-all duration-300"
                   >
-                    <Linkedin className="w-5 h-5" />
-                  </Link>
-                  <Link
-                    href="#"
-                    className="w-12 h-12 rounded-full bg-zinc-900 border border-zinc-800 flex items-center justify-center hover:bg-white hover:text-black transition-all duration-300"
-                  >
-                    <Camera className="w-5 h-5" />
+                    <FaFacebook className="w-5 h-5" />
                   </Link>
                 </div>
               </div>
