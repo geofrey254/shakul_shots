@@ -17,6 +17,7 @@ const nextConfig = {
     domains:[
       'localhost',
       'images.unsplash.com',
+      'shakul-shots.vercel.app'
     ]
   }
 }
