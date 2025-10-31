@@ -5,6 +5,7 @@ import { AlbumBlock } from '@/blocks/album/schema'
 import { AboutBlock } from '@/blocks/about/schema'
 import { TeamBlock } from '@/blocks/team/schema'
 import { PortfolioBlock } from '@/blocks/portfolio/schema'
+import { ContactBlock } from '@/blocks/contact/schema'
 
 export const Pages: CollectionConfig = {
   slug: 'pages',
@@ -35,7 +36,7 @@ export const Pages: CollectionConfig = {
       type: 'blocks',
       name: 'layout',
       label: 'Page Layout',
-      blocks: [HeroBlock, ServicesBlock, AlbumBlock, AboutBlock, TeamBlock, PortfolioBlock],
+      blocks: [HeroBlock, ServicesBlock, AlbumBlock, AboutBlock, TeamBlock, PortfolioBlock, ContactBlock],
       required: true,
     },
   ],

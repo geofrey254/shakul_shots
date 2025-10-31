@@ -32,9 +32,6 @@ export default function Portfolio({ block }: PortfolioProps) {
     768: 2,
     500: 2,
   }
-
-  console.log('Portfolio projects:', filteredProjects)
-
   return (
     <section className="bg-black px-6 md:px-12 lg:px-8 py-20 text-white border-t border-zinc-800">
       <div className="max-w-7xl mx-auto">

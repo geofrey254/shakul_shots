@@ -35,7 +35,6 @@ export default async function HomePage() {
     <div>
       <div className="page">
         {page.layout?.map((block, index) => renderBlock(block, index))}
-        <Contact />
       </div>
     </div>
   )
@@ -64,6 +63,9 @@ function renderBlock(block: any, index: number) {
       
     case 'portfolio':
       return <Portfolio key={index} block={block} />
+    
+    case 'contact':
+      return <Contact key={index} block={block} />  
 
     default:
       return null
